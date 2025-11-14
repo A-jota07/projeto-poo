@@ -3,9 +3,12 @@ from abc import ABC, abstractmethod
 
 class Abstract(ABC):
     def template_method(self):
+        self.hook()
         self.operation1()
         self.base_class_method()
         self.operation2()
+
+    def hook(self): pass
 
     def base_class_method(self):
         print('Ola eu sou da classe abstrata')
@@ -18,6 +21,9 @@ class Abstract(ABC):
 
 
 class ConcreteClass1(Abstract):
+    def hook(self):
+        print('Utilizando o hook')
+
     def operation1(self):
         print('Operação 1 concluida')
 
